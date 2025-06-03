@@ -6,9 +6,6 @@ while True:
     print("3. Editar um contato")
     print("3. Editar um contato")
 
-
-    
-
     escolha = input("Digite a sua escolha: ")
 
     if escolha == "1":
