@@ -1,0 +1,20 @@
+# VS Code
+.vscode/
+
+# Windows
+AppData/
+D3DSCache/
+*.tmp
+*.log
+*.jtx
+*.edb
+*.vol
+*.jfm
+
+# Python
+__pycache__/
+*.pyc
+
+# Node (se tiver)
+node_modules/
+dist/
