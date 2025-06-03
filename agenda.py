@@ -9,4 +9,3 @@ while True:
     escolha = input("Digite a sua escolha: ")
 
     if escolha == "1"
-        if escolha == "1"
