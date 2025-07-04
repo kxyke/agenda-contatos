@@ -41,6 +41,41 @@ def atualizar_email_contato(contatos, indice_contato, novo_email_contato):
         print("Índice de tarefa inválido.")
     return
 
+def menu_editar_contato(contatos):
+    indice_contato = int(input("\nDigite o indice do contato que deseja editar: "))
+    if indice_contato < 1 or indice_contato > len(contatos):
+        print("Índice inválido. Tente novamente.")
+        menu_editar_contato(contatos)
+        return
+
+    opcao = 0
+    while opcao != 4:
+        print("\nO que você deseja editar?")
+        print("[1] Nome; \n[2] Número; \n[3] Email; \n[4] Sair.")
+        try:
+            opcao = int(input("Digite sua opção: "))
+        except ValueError:
+            print("Digite um número válido.")
+            continue
+
+        if opcao == 1:
+            novo_nome_contato = input("Digite o novo nome do contato: ")
+            atualizar_nome_contato(contatos, indice_contato, novo_nome_contato)
+                
+        elif opcao == 2:
+            novo_numero_contato = input("Digite o novo número do contato: ")
+            atualizar_numero_contato(contatos, indice_contato, novo_numero_contato)
+
+        elif opcao == 3:
+            novo_email_contato = input("Digite o novo email do contato: ")
+            atualizar_email_contato(contatos, indice_contato, novo_email_contato)
+        
+        elif opcao == 4:   
+            print("Saindo do menu de edição...")
+
+        else:
+            print("Opção inválida, tente novamente.")
+
 contatos = []
 
 rodando = True
@@ -67,35 +102,7 @@ while rodando:
     
     elif escolha == "3":
         ver_contatos(contatos)
-        indice_contato = int(input("\nDigite o indice do contato que deseja editar: "))
-        print("\nO que você deseja editar?")
-        print("[1] Nome; \n[2] Número; \n[3] Email; \n[4] Sair.")
-        opcao = int(input("Digete sua opção: "))
-        while opcao != 4:
-            
-            if opcao == 1:
-                novo_nome_contato = input("Digite o novo nome do contato: ")
-                atualizar_nome_contato(contatos, indice_contato, novo_nome_contato)
-                
-                print("\nO que você mais deseja editar?")
-                print("[1] Nome; \n[2] Número; \n[3] Email; \n[4] Sair.")
-                opcao = int(input("Digete sua opção: "))
-
-            elif opcao == 2:
-                novo_numero_contato = input("Digite o novo número do contato: ")
-                atualizar_numero_contato(contatos, indice_contato, novo_numero_contato)
-
-                print("\nO que você mais deseja editar?")
-                print("[1] Nome; \n[2] Número; \n[3] Email; \n[4] Sair.")
-                opcao = int(input("Digete sua opção: "))
-            
-            elif opcao == 3:
-                novo_email_contato = input("Digite o novo email do contato: ")
-                atualizar_email_contato(contatos, indice_contato, novo_email_contato)
-
-                print("\nO que você mais deseja editar?")
-                print("[1] Nome; \n[2] Número; \n[3] Email; \n[4] Sair.")
-                opcao = int(input("Digete sua opção: "))
+        menu_editar_contato(contatos)
 
     elif escolha == "7":
         rodando = False
