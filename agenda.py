@@ -7,7 +7,7 @@ def adicionar_contato(contatos, nome_contato, numero_contato, email_contato):
 def ver_contatos(contatos):
     print("\nLista de contatos:")
     for indice, contato in enumerate(contatos, start=1):
-        status = "✩" if contato["favorito"] else " "
+        status = " ✩ " if contato["favorito"] else " "
         nome_contato = contato["contato"]
         numero_contato = contato["telefone"]
         email_contato = contato["email"]
@@ -76,6 +76,12 @@ def menu_editar_contato(contatos):
         else:
             print("Opção inválida, tente novamente.")
 
+def adicionar_favorito(contatos, indice_contato):
+    indice_contato_ajustado = indice_contato -1
+    contatos[indice_contato_ajustado]["favorito"] = True
+    print(f"Contato {indice_contato} adicionado aos favoritos!")
+    return
+
 contatos = []
 
 rodando = True
@@ -103,6 +109,11 @@ while rodando:
     elif escolha == "3":
         ver_contatos(contatos)
         menu_editar_contato(contatos)
+
+    elif escolha == "4":
+        ver_contatos(contatos)
+        indice_contato = int(input("\nDigite o indice do contato que deseja editar: "))
+        adicionar_favorito(contatos, indice_contato)
 
     elif escolha == "7":
         rodando = False
