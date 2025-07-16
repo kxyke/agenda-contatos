@@ -7,7 +7,7 @@ def adicionar_contato(contatos, nome_contato, numero_contato, email_contato):
 def ver_contatos(contatos):
     print("\nLista de contatos:")
     for indice, contato in enumerate(contatos, start=1):
-        status = " ✩ " if contato["favorito"] else " "
+        status = "*" if contato["favorito"] else " "
         nome_contato = contato["contato"]
         numero_contato = contato["telefone"]
         email_contato = contato["email"]
@@ -76,11 +76,44 @@ def menu_editar_contato(contatos):
         else:
             print("Opção inválida, tente novamente.")
 
-def adicionar_favorito(contatos, indice_contato):
+def adicionar_ou_remover_favorito(contatos, indice_contato):
     indice_contato_ajustado = indice_contato -1
-    contatos[indice_contato_ajustado]["favorito"] = True
-    print(f"Contato {indice_contato} adicionado aos favoritos!")
+
+    if 0 <= indice_contato_ajustado < len(contatos):
+        contato = contatos[indice_contato_ajustado]
+        contato["favorito"] = not contato["favorito"]
+
+        if contato["favorito"]:
+            print(f"Contato {indice_contato} marcado como favorito.")
+        else:
+            print(f"Contato {indice_contato} removido dos favoritos.")
+    else:
+        print("Índice de contato inválido.")
     return
+
+def ver_favoritos(contatos):
+    favoritos = [c for c in contatos if c["favorito"]]
+    
+    if not favoritos:
+        print("\nNenhum contato favorito.")
+        return
+    
+    print("\nLista de contatos favoritos: ")
+    for indice, contato in enumerate(favoritos, start=1):
+        nome = contato["contato"]
+        numero = contato["telefone"]
+        email = contato["email"]
+        print(f"{indice}. [*] {nome} | {numero} | {email}")
+    return
+
+def apagar_contatos(contatos, indice_contato):
+    indice_contato_ajustado = indice_contato -1
+
+    if 0 <= indice_contato_ajustado < len(contatos):
+        contato_removido = contatos.pop(indice_contato_ajustado)
+        print(f"Contato '{contato_removido["contato"]}' removido com sucesso.")
+    else:
+        print("Índice inválido. Nenhum contato foi removido.")
 
 contatos = []
 
@@ -112,8 +145,22 @@ while rodando:
 
     elif escolha == "4":
         ver_contatos(contatos)
-        indice_contato = int(input("\nDigite o indice do contato que deseja editar: "))
-        adicionar_favorito(contatos, indice_contato)
+        try:
+            indice_contato = int(input("\nDigite o indice do contato que deseja (des)marcar como favorito: "))
+            adicionar_ou_remover_favorito(contatos, indice_contato)
+        except ValueError:
+            print("Por favor, digite um número válido.")
+
+    elif escolha == "5":
+        ver_favoritos(contatos)
+
+    elif escolha == "6":
+        ver_contatos(contatos)
+        try:
+            indice_contato = int(input("\nDigite o indice do contato que deseja apagar: "))
+            apagar_contatos(contatos, indice_contato)
+        except ValueError:
+            print("Por favor, digite um número válido.")
 
     elif escolha == "7":
         rodando = False
