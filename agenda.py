@@ -130,9 +130,6 @@ while rodando:
     
     escolha = input("Digite a sua escolha: ")
 
-<<<<<<< HEAD
-    if escolha == "1"
-=======
     if escolha == "1":
         nome_contato = input("Digite o nome do contato que deseja adicionar: ")
         numero_contato = input(f"Digite o número do {nome_contato}: ")
@@ -168,4 +165,3 @@ while rodando:
     elif escolha == "7":
         rodando = False
         print("\nPrograma Finalizado!")
->>>>>>> agenda-2
