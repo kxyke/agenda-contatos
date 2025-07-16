@@ -18,3 +18,13 @@ __pycache__/
 # Node (se tiver)
 node_modules/
 dist/
+
+# Ignorar arquivos e pastas desnecessárias
+#__pycache__/
+#*.pyc
+#*.pyo
+#*.log
+#.env
+#.vscode/
+#AppData/
+#D3DSCache/
