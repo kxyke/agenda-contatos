@@ -1,79 +1,43 @@
-# 📒 Agenda de Contatos em Python
+# Agenda de Contatos
 
-Projeto desenvolvido como desafio prático de lógica de programação utilizando Python puro. A aplicação é executada via terminal e permite gerenciar contatos de forma simples e eficiente.
+> Agenda de contatos em Python puro, executada via terminal.
 
----
+## Funcionalidades
 
-## 🔹 Funcionalidades
+- Adicionar novos contatos (nome, telefone e email)
+- Visualizar todos os contatos salvos
+- Editar nome, telefone ou email de um contato existente
+- Marcar ou desmarcar um contato como **favorito**
+- Listar apenas os contatos favoritos
+- Remover contatos da lista
 
-* Adicionar novos contatos
-* Visualizar todos os contatos salvos
-* Editar nome, telefone ou email de um contato
-* Marcar ou desmarcar um contato como favorito ⭐
-* Listar apenas contatos favoritos
-* Excluir contatos da lista
+## Conceitos aplicados
 
----
+| Conceito | Onde é aplicado |
+|---|---|
+| Manipulação de listas e dicionários | Cada contato é um dicionário armazenado em uma lista, atualizado pelas funções de edição |
+| Modularização | Cada ação (adicionar, editar, favoritar, remover) é isolada em sua própria função |
+| Controle de fluxo | Validação de índices e opções do menu com condicionais e tratamento de `ValueError` |
 
-## 📄 Estrutura do Projeto
-
-```
-desafio-agenda/
-├── agenda.py        # Arquivo principal do projeto
-└── README.md        # Documentação do projeto
-```
-
----
-
-## 💻 Tecnologias Utilizadas
-
-* Python 3.13.2
-* Execução em terminal (linha de comando)
-
----
-
-## ▶️ Como Executar o Projeto
-
-1. Clone este repositório:
+## Como usar
 
 ```bash
-git clone https://github.com/kxyke/desafio-agenda.git
-```
-
-2. Acesse a pasta do projeto:
-
-```bash
-cd desafio-agenda
-```
-
-3. Execute o programa:
-
-```bash
+git clone git@github.com:kxyke/agenda-contatos.git
+cd agenda-contatos
 python agenda.py
 ```
 
-> Certifique-se de ter o Python instalado no seu sistema. Caso não tenha, instale a partir de: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+Certifique-se de ter o Python instalado. Caso não tenha, baixe em [python.org/downloads](https://www.python.org/downloads/).
 
----
+O menu no terminal guia pelas opções: adicionar, visualizar, editar, favoritar, listar favoritos, apagar ou sair.
 
-## 🔧 Aprendizados
+## Tecnologias
 
-Durante o desenvolvimento, foram aplicados conceitos importantes como:
+- Python 3
 
-* Manipulação de listas e dicionários em Python
-* Criação de menus e entrada de dados com `input()`
-* Validação de dados e controle de fluxo com condicionais
-* Modularização de código em funções reutilizáveis
-* Versionamento com Git e GitHub
+## Estrutura do projeto
 
----
-
-## 👨‍💻 Autor
-
-Desenvolvido por [Kayke](https://github.com/kxyke)
-
----
-
-## 🌟 Status do Projeto
-
-✅ Finalizado
+```
+├── agenda.py       # Lógica da agenda e menu do terminal
+└── README.md       # Documentação do projeto
+```
